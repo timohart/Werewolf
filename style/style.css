@@ -1,0 +1,90 @@
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 10px;
+}
+h1 {
+  font-size: 28px;
+  color: #333;
+}
+h2 {
+  font-size: 24px;
+  color: #555;
+}
+h3 {
+  font-size: 20px;
+  color: #777;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+ul, li {
+  list-style-type: none;
+  padding: 0;
+}
+a {
+  color: #0088cc;
+  text-decoration: none;
+}
+a:hover {
+  color: #005580;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#healthTracker {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  justify-items: center;
+}
+
+.healthLevel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.healthSlot {
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  input[type="checkbox"] {
+    width: auto;
+    height: 20px;
+  }
+
+  select {
+    /* Adjust styles for smaller screens */
+  }
+
+  input[type="range"] {
+    /* Adjust styles for smaller screens */
+  }
+}

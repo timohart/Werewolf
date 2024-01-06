@@ -102,7 +102,7 @@ function setForm() {
       }
 
       formTxt.innerHTML =  
-        "Aggravated Damage with Claw<br>" +
+        "A Damage with Claw<br>" +
         "Plus 1 bonus to Brawl, Melee, and Firearms<br>" +
         bonusTxt;
       break;
@@ -114,7 +114,7 @@ function setForm() {
       }
 
       formTxt.innerHTML =  
-        "Aggravated Damage with Claw and Tooth<br>" +
+        "A Damage with Claw and Tooth<br>" +
         "Can bite without grappling<br>" +
         bonusTxt;
       break;
@@ -126,7 +126,7 @@ function setForm() {
       }
 
       formTxt.innerHTML =  
-        "Aggravated Damage with Claw and Tooth<br>" +
+        "A Damage with Claw and Tooth<br>" +
         "Can bite without grappling<br>" +
         "Plus 4 to brawl" +
         bonusTxt;
@@ -219,3 +219,54 @@ function setWill() {
   wOutput.innerHTML = wSlider.value;
   saveState();
 }
+
+ // Define the maximum number of slots per level
+ const maxSlots = 4;
+
+ // Initialize the health data
+ const healthData = {
+   level1: Array(maxSlots).fill('O'),
+   level2: Array(maxSlots).fill('O'),
+   level3: Array(maxSlots).fill('O'),
+ };
+
+ // Function to update the health slots
+ function updateHealthSlots(level) {
+   const levelSlots = healthData[level];
+   const slotsContainer = document.getElementById(`${level}Slots`);
+   slotsContainer.innerHTML = '';
+
+   levelSlots.forEach((status, index) => {
+     const slot = document.createElement('div');
+     slot.classList.add('healthSlot');
+     slot.textContent = `${status}`;
+     slot.addEventListener('click', () => toggleHealthStatus(level, index));
+     slotsContainer.appendChild(slot);
+   });
+ }
+
+ // Function to toggle the health status
+ function toggleHealthStatus(level, index) {
+   const levelSlots = healthData[level];
+   
+   // Toggle between 'O', 'X', and 'A'
+   switch (levelSlots[index]) {
+     case 'O':
+       levelSlots[index] = 'X';
+       break;
+     case 'X':
+       levelSlots[index] = 'A';
+       break;
+     case 'A':
+       levelSlots[index] = 'O';
+       break;
+   }
+
+   // Update the display
+   updateHealthSlots(level);
+ }
+
+ // Initial rendering
+ updateHealthSlots('level1');
+ updateHealthSlots('level2');
+ updateHealthSlots('level3');

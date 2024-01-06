@@ -12,7 +12,7 @@
     <div id="header">
       <h1>Werewolf Tracker</h1>
     </div>
-    <div id="health">
+    <!-- <div id="health">
       <h2>Health</h2>
       <table class="tg">
         <thead>
@@ -41,7 +41,30 @@
           </tr>
         </tbody>
       </table>
+    </div> -->
+    <div id="healthTracker">
+      <div class="healthLevel" id="level1">
+        <h3>Healthy</h3>
+        <div class="healthSlots" id="level1Slots">
+          <!-- Slots will be dynamically generated here -->
+        </div>
+      </div>
+    
+      <div class="healthLevel" id="level2">
+        <h3>Injured</h3>
+        <div class="healthSlots" id="level2Slots">
+          <!-- Slots will be dynamically generated here -->
+        </div>
+      </div>
+    
+      <div class="healthLevel" id="level3">
+        <h3>Incapacitated</h3>
+        <div class="healthSlots" id="level3Slots">
+          <!-- Slots will be dynamically generated here -->
+        </div>
+      </div>
     </div>
+
     <div id="spendable">
       <label for="gnosis"><h2>Gnosis</h2></label>
       <input type="range" min="0" max="15" value="10" name="gnosisRange" id="gnosisRange">
