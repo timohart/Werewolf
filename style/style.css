@@ -54,7 +54,7 @@ input[type="text"], select {
 #healthTracker {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
   justify-items: center;
 }
 
@@ -70,6 +70,7 @@ input[type="text"], select {
   margin: 5px;
   cursor: pointer;
 }
+
 @media screen and (max-width: 600px) {
   .container {
     padding: 10px;
