@@ -1,6 +1,6 @@
 ;
 // Define the maximum number of slots per level
-var maxSlots = 4;
+var maxSlots = 3;
 
 // Function to retrieve data from local storage
 function retrieveData() {
