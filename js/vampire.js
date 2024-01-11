@@ -14,10 +14,13 @@ var staCheck = document.getElementById("sta");
 var fortCheck = document.getElementById("fort");
 var rugCheck = document.getElementById("rug");
 
+var healthTracker = document.getElementById("healthTracker");
+
+let DATA = {...localStorage}; // copy localStorage to DATA
+
 window.onload = function () {
   updateWindow();
 }
-
 function saveState() {
   localStorage.setItem('blood', bloodSlider.value);
   localStorage.setItem('will', wSlider.value);
@@ -36,7 +39,7 @@ function updateWindow() {
 
     saveState();
   } else {
-    setBloodMax(gen.value);
+    setBloodMax(gen.value, true);
     wSlider.value = localStorage.getItem('will');
 
     if (localStorage.getItem('str') === 'true') {strCheck.checked = true;}
@@ -44,6 +47,18 @@ function updateWindow() {
     if (localStorage.getItem('sta') === 'true') {staCheck.checked = true;}
     if (localStorage.getItem('fort') === 'true') {fortCheck.checked = true;}
     if (localStorage.getItem('rug') === 'true') {rugCheck.checked = true;}
+
+    if (fortCheck.checked && staCheck.checked) {
+      healthTracker.classList.add('hasFortSta');
+    } else {
+      healthTracker.classList.remove('hasFortSta');
+    }
+    if (rugCheck.checked) {
+      healthTracker.classList.add('hasRug');
+    } else {
+      healthTracker.classList.remove('hasRug');
+    }
+
   }
 }
 
@@ -59,13 +74,31 @@ gen.onchange = function() {
   setBloodMax(gen.value);
 }
 
+strCheck.onchange = function() {
+  saveState();
+  updateWindow();
+}
+dexCheck.onchange = function() {
+  saveState();
+  updateWindow();
+}
 fortCheck.onchange = function() {
-  
+  saveState();
+  updateWindow();
+}
+staCheck.onchange = function() {
+  saveState();
+  updateWindow();
+}
+rugCheck.onchange = function() {
+  saveState();
+  updateWindow();
 }
 
-function setblood() {
+
+function setblood(skipSave) {
   bloodOutput.innerHTML = bloodSlider.value;
-  saveState();
+  if(!skipSave)saveState();
 }
 
 function setWill() {
@@ -73,7 +106,7 @@ function setWill() {
   saveState();
 }
 
-function setBloodMax(gen) {
+function setBloodMax(gen, skipSave) {
   var max;
   switch (gen) {
     case '0':
@@ -98,5 +131,5 @@ function setBloodMax(gen) {
   bloodSlider.max = max;
   bloodSlider.value = max;
 
-  setblood();
+  if(!skipSave)setblood();
 }

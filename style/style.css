@@ -76,6 +76,18 @@ input[type="text"], select {
   cursor: pointer;
 }
 
+.healthSlot:nth-child(4),
+.healthSlot:nth-child(5) {
+  display: none;
+}
+#healthTracker.hasFortSta .healthSlot:nth-child(4) {
+  display: block!important;
+}
+#healthTracker.hasRug .healthSlot:nth-child(5) {
+  display: block!important;
+}
+
+
 @media screen and (max-width: 600px) {
   .container {
     padding: 10px;

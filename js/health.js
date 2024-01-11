@@ -1,10 +1,11 @@
 ;
 // Define the maximum number of slots per level
-var maxSlots = 3;
+var maxSlots = 5;
 
 // Function to retrieve data from local storage
-function retrieveData() {
+function retrieveHealthData() {
   const savedData = JSON.parse(localStorage.getItem('healthData'));
+  // let savedData;// = JSON.parse(localStorage.getItem('healthData'));
   return savedData || {
     level1: Array(maxSlots).fill('O'),
     level2: Array(maxSlots).fill('O'),
@@ -52,7 +53,7 @@ function toggleHealthStatus(level, index) {
 }
 
 // Initialize the health data
-const healthData = retrieveData();
+const healthData = retrieveHealthData();
 
 // Initial rendering
 updateHealthSlots('level1');
