@@ -21,6 +21,7 @@ let DATA = {...localStorage}; // copy localStorage to DATA
 window.onload = function () {
   updateWindow();
 }
+
 function saveState() {
   localStorage.setItem('blood', bloodSlider.value);
   localStorage.setItem('will', wSlider.value);

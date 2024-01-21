@@ -12,12 +12,17 @@ var formTxt = document.getElementById("formText");
 var strCheck = document.getElementById("str");
 var dexCheck = document.getElementById("dex");
 var staCheck = document.getElementById("sta");
+var rugCheck = document.getElementById("rug");
 
 var gnosisSlider = document.getElementById("gnosisRange");
 var gnosisOutput = document.getElementById("gValue");
 
 var wSlider = document.getElementById("willRange");
 var wOutput = document.getElementById("wValue");
+
+var healthTracker = document.getElementById("healthTracker");
+
+let DATA = {...localStorage};
 
 window.onload = function () {
   updateWindow();
@@ -31,6 +36,7 @@ function saveState() {
   localStorage.setItem('dex', dexCheck.checked);
   localStorage.setItem('sta', staCheck.checked);
   localStorage.setItem('form', formSelect.value);
+  localStorage.setItem('rug', rugCheck.checked);
 }
 
 function updateWindow() {
@@ -49,16 +55,29 @@ function updateWindow() {
     if (localStorage.getItem('str') === 'true') {strCheck.checked = true;}
     if (localStorage.getItem('dex') === 'true') {dexCheck.checked = true;}
     if (localStorage.getItem('sta') === 'true') {staCheck.checked = true;}
+    if (localStorage.getItem('rug') === 'true') {rugCheck.checked = true;}
 
     setForm();
     setGnosis();
     setRage();
     setWill();
+
+    if (staCheck.checked && formSelect.value == "3") {
+      healthTracker.classList.add('hasFortSta');
+    } else {
+      healthTracker.classList.remove('hasFortSta');
+    }
+    if (rugCheck.checked) {
+      healthTracker.classList.add('hasRug');
+    } else {
+      healthTracker.classList.remove('hasRug');
+    }
   }
 }
 
 formSelect.onchange = function() {
   setForm();
+  updateWindow();
 }
 
 rageSlider.onchange = function() {
@@ -83,6 +102,12 @@ dexCheck.onclick = function() {
 
 staCheck.onclick = function() {
   setForm();
+  updateWindow();
+}
+
+rugCheck.onchange = function() {
+  saveState();
+  updateWindow();
 }
 
 function setForm() {

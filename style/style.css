@@ -80,9 +80,11 @@ input[type="text"], select {
 .healthSlot:nth-child(5) {
   display: none;
 }
+
 #healthTracker.hasFortSta .healthSlot:nth-child(4) {
   display: block!important;
 }
+
 #healthTracker.hasRug .healthSlot:nth-child(5) {
   display: block!important;
 }
