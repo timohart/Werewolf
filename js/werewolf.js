@@ -22,6 +22,25 @@ var wOutput = document.getElementById("wValue");
 
 var healthTracker = document.getElementById("healthTracker");
 
+var dodgeT = document.getElementById('dodgeT');
+var dodgeW = document.getElementById('dodgeW');
+var mentelT = document.getElementById('mentelT');
+var socialT = document.getElementById('socialT');
+
+var brawlT = document.getElementById('brawlT');
+var brawlW = document.getElementById('brawlW');
+var meleeT = document.getElementById('meleeT');
+var meleeW = document.getElementById('meleeW');
+
+var phyV = document.getElementById('phyV');
+var menV = document.getElementById('menV');
+var socV = document.getElementById('socV');
+
+var dodgeV = document.getElementById('dodgeV');
+var brawlV = document.getElementById('brawlV');
+var meleeV = document.getElementById('meleeV');
+var firearmsV = document.getElementById('firearmsV');
+
 let DATA = {...localStorage};
 
 window.onload = function () {
@@ -37,6 +56,13 @@ function saveState() {
   localStorage.setItem('sta', staCheck.checked);
   localStorage.setItem('form', formSelect.value);
   localStorage.setItem('rug', rugCheck.checked);
+  localStorage.setItem('phy', phyV.value);
+  localStorage.setItem('menV', menV.value);
+  localStorage.setItem('socV', socV.value);
+  localStorage.setItem('dodgeV', dodgeV.value);
+  localStorage.setItem('brawlV', brawlV.value);
+  localStorage.setItem('meleeV', meleeV.value);
+  localStorage.setItem('firearmsV', firearmsV.value);
 }
 
 function updateWindow() {
@@ -110,6 +136,46 @@ rugCheck.onchange = function() {
   updateWindow();
 }
 
+phyV.onchange = function() {
+  setPools();
+}
+
+menV.onchange = function() {
+  setPools();
+}
+
+socV.onchange = function() {
+  setPools();
+}
+
+dodgeV.onchange = function() {
+  setPools();
+}
+
+brawlV.onchange = function() {
+  setPools();
+}
+
+meleeV.onchange = function() {
+  setPools();
+}
+
+firearmsV.onchange = function() {
+  setPools();
+}
+
+dodgeW.onchange = function() {
+  setPools();
+}
+
+brawlW.onchange = function() {
+  setPools();
+}
+
+meleeW.onchange = function() {
+  setPools();
+}
+
 function setForm() {
   var bonusTxt;
   
@@ -166,6 +232,7 @@ function setForm() {
       break;
   }
 
+  setPools();
   saveState();
 }
 
@@ -242,5 +309,42 @@ function setGnosis() {
 
 function setWill() {
   wOutput.innerHTML = wSlider.value;
+  setPools();
+  saveState();
+}
+
+function setPools() {
+  if (formSelect.value == '1') {
+    if (dexCheck.checked) {
+      dodgeT.innerHTML = parseInt(phyV.value) + parseInt(dodgeV.value) + parseInt(dodgeW.value) + 5;
+    } else {
+      dodgeT.innerHTML = parseInt(phyV.value) + parseInt(dodgeV.value) + parseInt(dodgeW.value) + 3;
+    }
+    
+  } else {
+    dodgeT.innerHTML = parseInt(phyV.value) + parseInt(dodgeV.value) + parseInt(dodgeW.value);
+  }
+  
+  if (formSelect.value == '2') {
+    if (strCheck.checked) {
+      brawlT.innerHTML = parseInt(phyV.value) + parseInt(brawlV.value) + parseInt(brawlW.value) + 6;
+      meleeT.innerHTML = parseInt(phyV.value) + parseInt(meleeV.value) + parseInt(meleeW.value) + 6;
+    } else {
+      brawlT.innerHTML = parseInt(phyV.value) + parseInt(brawlV.value) + parseInt(brawlW.value) + 4;
+      meleeT.innerHTML = parseInt(phyV.value) + parseInt(meleeV.value) + parseInt(meleeW.value) + 4;
+    }
+    
+  } else  if (formSelect.value == '3') {
+    brawlT.innerHTML = parseInt(phyV.value) + parseInt(brawlV.value) + parseInt(brawlW.value) + 4;
+  } else{
+    brawlT.innerHTML = parseInt(phyV.value) + parseInt(brawlV.value) + parseInt(brawlW.value);
+    meleeT.innerHTML = parseInt(phyV.value) + parseInt(meleeV.value) + parseInt(meleeW.value);
+  }
+
+ 
+
+  mentelT.innerHTML = parseInt(menV.value) + parseInt(wSlider.value);
+  socialT.innerHTML = parseInt(socV.value) + parseInt(wSlider.value);
+
   saveState();
 }
