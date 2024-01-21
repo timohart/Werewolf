@@ -336,12 +336,10 @@ function setPools() {
     
   } else  if (formSelect.value == '3') {
     brawlT.innerHTML = parseInt(phyV.value) + parseInt(brawlV.value) + parseInt(brawlW.value) + 4;
-  } else{
+  } else {
     brawlT.innerHTML = parseInt(phyV.value) + parseInt(brawlV.value) + parseInt(brawlW.value);
     meleeT.innerHTML = parseInt(phyV.value) + parseInt(meleeV.value) + parseInt(meleeW.value);
   }
-
- 
 
   mentelT.innerHTML = parseInt(menV.value) + parseInt(wSlider.value);
   socialT.innerHTML = parseInt(socV.value) + parseInt(wSlider.value);
