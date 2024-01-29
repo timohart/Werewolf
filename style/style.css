@@ -99,12 +99,4 @@ input[type="text"], select {
     width: auto;
     height: 20px;
   }
-
-  select {
-    /* Adjust styles for smaller screens */
-  }
-
-  input[type="range"] {
-    /* Adjust styles for smaller screens */
-  }
 }
