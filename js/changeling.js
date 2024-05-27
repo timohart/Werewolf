@@ -13,6 +13,18 @@ var staCheck = document.getElementById("sta");
 var fortCheck = document.getElementById("fort");
 var rugCheck = document.getElementById("rug");
 
+var dodgeT = document.getElementById('dodgeT');
+var mentelT = document.getElementById('mentelT');
+var socialT = document.getElementById('socialT');
+var brawlT = document.getElementById('brawlT');
+var meleeT = document.getElementById('meleeT');
+var phyV = document.getElementById('phyV');
+var menV = document.getElementById('menV');
+var socV = document.getElementById('socV');
+var dodgeV = document.getElementById('dodgeV');
+var brawlV = document.getElementById('brawlV');
+var meleeV = document.getElementById('meleeV');
+
 var healthTracker = document.getElementById("healthTracker");
 
 let DATA = {...localStorage}; // copy localStorage to DATA
@@ -30,6 +42,12 @@ function saveState() {
   localStorage.setItem('sta', staCheck.checked);
   localStorage.setItem('fort', fortCheck.checked);
   localStorage.setItem('rug', rugCheck.checked);
+  localStorage.setItem('dodgeV', dodgeV.value);
+  localStorage.setItem('brawlV', brawlV.value);
+  localStorage.setItem('meleeV', meleeV.value);
+  localStorage.setItem('phyV', phyV.value);
+  localStorage.setItem('menV', menV.value);
+  localStorage.setItem('socV', socV.value);
 }
 
 function updateWindow() {
@@ -41,6 +59,13 @@ function updateWindow() {
   } else {
     setGlamerMax(seeming.value, true);
     wSlider.value = localStorage.getItem('will');
+
+    dodgeV.value = localStorage.getItem('dodgeV');
+    brawlV.value = localStorage.getItem('brawlV');
+    meleeV.value = localStorage.getItem('meleeV');
+    phyV.value = localStorage.getItem('phyV');
+    menV.value = localStorage.getItem('menV');
+    socV.value = localStorage.getItem('socV');
 
     if (localStorage.getItem('str') === 'true') {strCheck.checked = true;}
     if (localStorage.getItem('dex') === 'true') {dexCheck.checked = true;}
@@ -58,6 +83,16 @@ function updateWindow() {
     } else {
       healthTracker.classList.remove('hasRug');
     }
+    // Calculate and update pool values here
+    var totalDodge = parseInt(phyV.value) + parseInt(dodgeV.value);
+    var totalBrawl = parseInt(phyV.value) + parseInt(brawlV.value);
+    var totalMelee = parseInt(phyV.value) + parseInt(meleeV.value);
+
+    dodgeT.innerHTML = totalDodge;
+    mentelT.innerHTML = parseInt(menV.value);
+    socialT.innerHTML = parseInt(socV.value);
+    brawlT.innerHTML = totalBrawl;
+    meleeT.innerHTML = totalMelee;
   }
 }
 
@@ -90,6 +125,36 @@ staCheck.onchange = function() {
   updateWindow();
 }
 rugCheck.onchange = function() {
+  saveState();
+  updateWindow();
+}
+
+phyV.onchange = function() {
+  saveState();
+  updateWindow();
+}
+
+menV.onchange = function() {
+  saveState();
+  updateWindow();
+}
+
+socV.onchange = function() {
+  saveState();
+  updateWindow();
+}
+
+dodgeV.onchange = function() {
+  saveState();
+  updateWindow();
+}
+
+brawlV.onchange = function() {
+  saveState();
+  updateWindow();
+}
+
+meleeV.onchange = function() {
   saveState();
   updateWindow();
 }
