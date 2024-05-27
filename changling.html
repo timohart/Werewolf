@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style/style.css">
+  <title>Changeling</title>
+</head>
+<body>
+  <div class="container">
+    <header id="header">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
+        <a class="navbar-brand" href="#">Dream Trackers</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button class="btn btn-danger" onclick="localStorage.clear()">Clear LocalStorage</button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="vampiire.html">Vampire</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="changeling.html">Changeling</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="werewolf.html">Werewolf</a>
+                </li>
+            </ul>
+        </div>
+      </nav>
+    </header>
+    
+    <main id="mainContent">
+      <section id="healthTracker" aria-labelledby="healthTrackerHeading">
+        <h2 id="healthTrackerHeading">Health Tracker</h2>
+        <div class="healthLevel" id="level1">
+          <h3>Healthy</h3>
+          <div class="healthSlots" id="level1Slots">
+            <!-- Slots will be dynamically generated here -->
+          </div>
+        </div>
+      
+        <div class="healthLevel" id="level2">
+          <h3>Injured</h3>
+          <div class="healthSlots" id="level2Slots">
+            <!-- Slots will be dynamically generated here -->
+          </div>
+        </div>
+      
+        <div class="healthLevel" id="level3">
+          <h3>Incapacitated</h3>
+          <div class="healthSlots" id="level3Slots">
+            <!-- Slots will be dynamically generated here -->
+          </div>
+        </div>
+      </section>
+      
+      <section id="spendable" aria-labelledby="spendableHeading">
+        <h2 id="spendableHeading">Spendable Resources</h2>
+        <label for="glamerRange"><h2>Glamer</h2></label>
+        <input type="range" min="0" max="14" value="14" name="glamerRange" id="glamerRange" aria-valuemin="0" aria-valuemax="14" aria-valuenow="14">
+        <label for="gValue" id="gValue">14</label><br>
+  
+        <label for="willRange"><h2>Will</h2></label>
+        <input type="range" min="0" max="8" value="6" name="willRange" id="willRange" aria-valuemin="0" aria-valuemax="8" aria-valuenow="6">
+        <label for="wValue" id="wValue">6</label><br>
+      </section>
+      
+      <section class="pools" aria-labelledby="poolsHeading">
+        <h2 id="poolsHeading">Pools Coming Soon...</h2>
+      </section>
+      
+      <section class="traits" aria-labelledby="traitsHeading">
+        <h2 id="traitsHeading">Traits</h2>
+        <label for="seeming">Seeming</label> 
+        <select name="seeming" id="seeming" aria-labelledby="seeming">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select><br>
+        <label for="phy"><h3>Physical Focus</h3></label><br>
+        <label for="str">Strength</label><input type="checkbox" name="str" id="str"><br>
+        <label for="dex">Dexterity</label><input type="checkbox" name="dex" id="dex"><br>
+        <label for="sta">Stamina</label><input type="checkbox" name="sta" id="sta">
+        <br>
+        <br>
+        <label for="fort">Fortitude</label><input type="checkbox" name="fort" id="fort"><br>
+        <label for="rug">Rugged</label><input type="checkbox" name="rug" id="rug">
+      </section>
+    </main>
+    
+    <footer id="footer" role="contentinfo">
+      <small>Developed by <a href="mailto:timoh.larp@gmail.com">Timothe Hartwig</a></small>
+    </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="/js/health.js"></script>
+  <script src="/js/changeling.js"></script>
+</body>
+</html>
