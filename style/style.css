@@ -8,6 +8,10 @@
   color: #fff;
 }
 
+.header {
+  margin-bottom: 15px;
+}
+
 h1, h2, h3 {
   font-family: 'Arial', sans-serif;
   margin-bottom: 10px;
@@ -31,7 +35,13 @@ body {
   color: #333;
   background-color: #f4f4f4;
   padding: 20px;
-  padding-top: 56px;
+  padding-top: 80px;
+}
+
+@media (max-width: 992px) {
+  body {
+    padding-top: 110px;
+  }
 }
 
 ul, li {
