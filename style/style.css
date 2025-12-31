@@ -99,6 +99,34 @@ input[type="text"], select {
   display: block!important;
 }
 
+#renown .renown-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inline-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.inline-pair {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.number-compact {
+  width: 70px;
+}
+
+#poolValues .inline-row + .inline-row {
+  margin-top: 20px;
+}
+
 
 @media screen and (max-width: 600px) {
   .container {

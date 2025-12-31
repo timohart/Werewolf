@@ -93,12 +93,19 @@
     </div>
     <div id="form">
       <h2>Form</h2>
-      <label for="phy"><h3>Physical Focus</h3></label><br>
-      <label for="str">Strength</label><input type="checkbox" name="str" id="str"><br>
-      <label for="dex">Dexterity</label><input type="checkbox" name="dex" id="dex"><br>
-      <label for="sta">Stamina</label><input type="checkbox" name="sta" id="sta"><br>
-      <br>
-      <label for="formBreed"><h3>Form Breed</h3></label>
+      <h3>Physical Focus</h3>
+      <div class="inline-row">
+        <div class="inline-pair">
+          <label for="str">Strength</label><input type="checkbox" name="str" id="str">
+        </div>
+        <div class="inline-pair">
+          <label for="dex">Dexterity</label><input type="checkbox" name="dex" id="dex">
+        </div>
+        <div class="inline-pair">
+          <label for="sta">Stamina</label><input type="checkbox" name="sta" id="sta">
+        </div>
+      </div>
+      <h3>Form Breed</h3>
       <select name="formBreed" id="formBreed">
         <option value="0">Homid</option>
         <option value="1">Glabro</option>
@@ -130,14 +137,45 @@
       </div>
       <div id="poolValues">
         <h3>Values</h3>
-        <label for="phyV">Physical</label><input type="number" id="phyV" name="phyV" value="0" step="1"><br>
-        <label for="menV">Mentel</label><input type="number" id="menV" name="menV" value="0" step="1"><br>
-        <label for="socV">Social</label><input type="number" id="socV" name="socV" value="0" step="1"><br>
-        <br>
-        <label for="dodgeV">Dodge</label><input type="number" id="dodgeV" name="dodgeV" value="0" step="1"><br>
-        <label for="brawlV">Brawl</label><input type="number" id="brawlV" name="brawlV" value="0" step="1"><br>
-        <label for="meleeV">Melee</label><input type="number" id="meleeV" name="meleeV" value="0" step="1"><br>
-        <label for="firearmsV">Firearms</label><input type="number" id="firearmsV" value="0" name="firearmsV" step="1"><br>
+        <div class="inline-row">
+          <div class="inline-pair">
+            <label for="phyV">Physical</label><input type="number" class="number-compact" id="phyV" name="phyV" value="0" step="1" min="3" max="15">
+          </div>
+          <div class="inline-pair">
+            <label for="menV">Mentel</label><input type="number" class="number-compact" id="menV" name="menV" value="0" step="1" min="3" max="15">
+          </div>
+          <div class="inline-pair">
+            <label for="socV">Social</label><input type="number" class="number-compact" id="socV" name="socV" value="0" step="1" min="3" max="15">
+          </div>
+        </div>
+        <div class="inline-row">
+          <div class="inline-pair">
+            <label for="dodgeV">Dodge</label><input type="number" class="number-compact" id="dodgeV" name="dodgeV" value="0" step="1" min="0" max="8">
+          </div>
+          <div class="inline-pair">
+            <label for="brawlV">Brawl</label><input type="number" class="number-compact" id="brawlV" name="brawlV" value="0" step="1" min="0" max="8">
+          </div>
+          <div class="inline-pair">
+            <label for="meleeV">Melee</label><input type="number" class="number-compact" id="meleeV" name="meleeV" value="0" step="1" min="0" max="8">
+          </div>
+          <div class="inline-pair">
+            <label for="firearmsV">Firearms</label><input type="number" class="number-compact" id="firearmsV" value="0" name="firearmsV" step="1" min="0" max="8">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="renown">
+      <h2>Renown</h2>
+      <div class="renown-row inline-row">
+        <div class="inline-pair">
+          <label for="wisdomRenown">Wisdom</label><input type="number" class="number-compact" id="wisdomRenown" name="wisdomRenown" min="0" max="10" step="1" value="0">
+        </div>
+        <div class="inline-pair">
+          <label for="honorRenown">Honor</label><input type="number" class="number-compact" id="honorRenown" name="honorRenown" min="0" max="10" step="1" value="0">
+        </div>
+        <div class="inline-pair">
+          <label for="gloryRenown">Glory</label><input type="number" class="number-compact" id="gloryRenown" name="gloryRenown" min="0" max="10" step="1" value="0">
+        </div>
       </div>
     </div>
     <div id="footer">
