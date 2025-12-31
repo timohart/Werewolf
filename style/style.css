@@ -124,7 +124,11 @@ input[type="text"], select {
 }
 
 #poolValues .inline-row + .inline-row {
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.pool-strong {
+  font-weight: bold;
 }
 
 

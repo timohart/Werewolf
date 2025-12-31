@@ -32,9 +32,24 @@ var brawlW = document.getElementById('brawlW');
 var meleeT = document.getElementById('meleeT');
 var meleeW = document.getElementById('meleeW');
 
+var killerInstinctT = document.getElementById('killerInstinctT');
+var killerInstinctW = document.getElementById('killerInstinctW');
+var forcePersonalityT = document.getElementById('forcePersonalityT');
+var forcePersonalityW = document.getElementById('forcePersonalityW');
+var ironcladWillT = document.getElementById('ironcladWillT');
+var ironcladWillW = document.getElementById('ironcladWillW');
+
+var killerInstinctName = document.getElementById('killerInstinctName');
+var forcePersonalityName = document.getElementById('forcePersonalityName');
+var ironcladWillName = document.getElementById('ironcladWillName');
+
 var phyV = document.getElementById('phyV');
 var menV = document.getElementById('menV');
 var socV = document.getElementById('socV');
+var animalKenV = document.getElementById('animalKenV');
+var leadershipV = document.getElementById('leadershipV');
+var intimidationV = document.getElementById('intimidationV');
+var rankV = document.getElementById('rankV');
 
 var dodgeV = document.getElementById('dodgeV');
 var brawlV = document.getElementById('brawlV');
@@ -59,10 +74,17 @@ function saveState() {
   localStorage.setItem('phy', phyV.value);
   localStorage.setItem('menV', menV.value);
   localStorage.setItem('socV', socV.value);
+  localStorage.setItem('animalKenV', animalKenV.value);
+  localStorage.setItem('leadershipV', leadershipV.value);
+  localStorage.setItem('intimidationV', intimidationV.value);
+  localStorage.setItem('rankV', rankV.value);
   localStorage.setItem('dodgeV', dodgeV.value);
   localStorage.setItem('brawlV', brawlV.value);
   localStorage.setItem('meleeV', meleeV.value);
   localStorage.setItem('firearmsV', firearmsV.value);
+  localStorage.setItem('killerInstinctW', killerInstinctW.value);
+  localStorage.setItem('forcePersonalityW', forcePersonalityW.value);
+  localStorage.setItem('ironcladWillW', ironcladWillW.value);
 }
 
 function updateWindow() {
@@ -82,6 +104,20 @@ function updateWindow() {
     if (localStorage.getItem('dex') === 'true') {dexCheck.checked = true;}
     if (localStorage.getItem('sta') === 'true') {staCheck.checked = true;}
     if (localStorage.getItem('rug') === 'true') {rugCheck.checked = true;}
+    phyV.value = localStorage.getItem('phy') || 0;
+    menV.value = localStorage.getItem('menV') || 0;
+    socV.value = localStorage.getItem('socV') || 0;
+    animalKenV.value = localStorage.getItem('animalKenV') || 0;
+    leadershipV.value = localStorage.getItem('leadershipV') || 0;
+    intimidationV.value = localStorage.getItem('intimidationV') || 0;
+    rankV.value = localStorage.getItem('rankV') || 0;
+    dodgeV.value = localStorage.getItem('dodgeV') || 0;
+    brawlV.value = localStorage.getItem('brawlV') || 0;
+    meleeV.value = localStorage.getItem('meleeV') || 0;
+    firearmsV.value = localStorage.getItem('firearmsV') || 0;
+    killerInstinctW.value = localStorage.getItem('killerInstinctW') || 0;
+    forcePersonalityW.value = localStorage.getItem('forcePersonalityW') || 0;
+    ironcladWillW.value = localStorage.getItem('ironcladWillW') || 0;
 
     setForm();
     setGnosis();
@@ -148,6 +184,22 @@ socV.onchange = function() {
   setPools();
 }
 
+animalKenV.onchange = function() {
+  setPools();
+}
+
+leadershipV.onchange = function() {
+  setPools();
+}
+
+intimidationV.onchange = function() {
+  setPools();
+}
+
+rankV.onchange = function() {
+  setPools();
+}
+
 dodgeV.onchange = function() {
   setPools();
 }
@@ -174,6 +226,34 @@ brawlW.onchange = function() {
 
 meleeW.onchange = function() {
   setPools();
+}
+
+killerInstinctW.onchange = function() {
+  setPools();
+}
+
+forcePersonalityW.onchange = function() {
+  setPools();
+}
+
+ironcladWillW.onchange = function() {
+  setPools();
+}
+
+function updateStaredownHighlight() {
+  const values = [
+    {el: killerInstinctName, val: parseInt(killerInstinctT.textContent) || 0},
+    {el: forcePersonalityName, val: parseInt(forcePersonalityT.textContent) || 0},
+    {el: ironcladWillName, val: parseInt(ironcladWillT.textContent) || 0},
+  ];
+  const maxVal = Math.max(...values.map(v => v.val));
+  values.forEach(v => {
+    if (v.val === maxVal) {
+      v.el.classList.add('pool-strong');
+    } else {
+      v.el.classList.remove('pool-strong');
+    }
+  });
 }
 
 function setForm() {
@@ -343,6 +423,16 @@ function setPools() {
 
   mentelT.innerHTML = parseInt(menV.value) + parseInt(wSlider.value);
   socialT.innerHTML = parseInt(socV.value) + parseInt(wSlider.value);
+
+  const killerInstinctVal = parseInt(phyV.value) + parseInt(animalKenV.value) + parseInt(rankV.value) + parseInt(killerInstinctW.value);
+  const forcePersonalityVal = parseInt(socV.value) + parseInt(leadershipV.value) + parseInt(rankV.value) + parseInt(forcePersonalityW.value);
+  const ironcladWillVal = parseInt(menV.value) + parseInt(intimidationV.value) + parseInt(rankV.value) + parseInt(ironcladWillW.value);
+
+  killerInstinctT.innerHTML = killerInstinctVal;
+  forcePersonalityT.innerHTML = forcePersonalityVal;
+  ironcladWillT.innerHTML = ironcladWillVal;
+
+  updateStaredownHighlight();
 
   saveState();
 }
